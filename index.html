@@ -28,6 +28,7 @@
     </h2>
     <h4> {{changeTitleAgain() }} </h4>
     {{title}}
+    <h5 v-html="aTagToGoogle"></h5>
   </div>
 
 
@@ -38,7 +39,8 @@
       data: {
         title: 'Months',
         birthday: 'Happy Birthday to you',
-        linkToGoogle: 'https://google.com'
+        linkToGoogle: 'https://google.com',
+        aTagToGoogle: `<a href="https://amazon.com">Amazon</a>`
       },
       methods: {
         months() {
