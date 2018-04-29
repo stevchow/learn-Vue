@@ -71,3 +71,6 @@ v-html use to rendering out 'data' from Vue that contain raw html code like ```<
 when we called a method on HTML file using {{}} or other stuff, and in that method contain a 'data' that we changed, but we don't want the 'data' changed before or after the method called, here we use v-once before the method called in HTML file to keep the value of that 'data' that is changed by calling a method.
 
 
+4. v-on:click="methodsfromvuehere"
+v-on is like addEventListener in vanillaJS, it listen to an Event and here it listen to a click. It can listen to other events to such as mouseenter, mouseleave, keyup etc
+
