@@ -51,7 +51,23 @@ We put function inside 'methods', and string like value inside 'data'.
 
 
 > Vue "this"
+
+As far as I get, in Vue, 'this' keyword is a storage that store all property of 'data' and 'methods'. So if we want to access 'data' from 'methods' we need to use 'this' keyword, same with accessing other methods on one method. But we can't exactly accessing methods from 'data' using 'this' keyword.
+
 > Vue directives
 
+Vue stand as median layer between HTML or DOM and Javascript. So when we use Vue, before the page rendering out the DOM for user, Vue reading allthrough what component or vue feature that are configured under the hood. One of them is directive, vue keyword that place directly into the HTML file, but not appear on HTML file in client side. 
+
+It take javascript logic way and bind it to the HTML directly. We put directives on html tag.
+
+Example : 
+1. v-bind:htmlattributehere=""
+We use v-bind:...="" or :...="" (the shorthandof v-bind) to bind vue 'data' or 'methods' into HTML, that's because we can't use the functionality of {{}} , like inside tag or in attribute. ```v-bind:href="abcdAA"``` or ```:href="abcdAA"``` We using href inside a tag and want to retrieve data from 'data' in Vue named 'abcdAA'.
+
+2. v-html=""
+v-html use to rendering out 'data' from Vue that contain raw html code like ```<a href="https://amazon.com">Amazon</a>```. Use it in div or span or whatever you prefer.
+
+3. v-once
+when we called a method on HTML file using {{}} or other stuff, and in that method contain a 'data' that we changed, but we don't want the 'data' changed before or after the method called, here we use v-once before the method called in HTML file to keep the value of that 'data' that is changed by calling a method.
 
 

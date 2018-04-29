@@ -24,7 +24,7 @@
     </h3>
     <h2 v-once>
       {{title}}
-      <a :href=linkToGoogle>Go to google</a>
+      <a :href="linkToGoogle">Go to google</a>
     </h2>
     <h4> {{changeTitleAgain() }} </h4>
     {{title}}
@@ -50,7 +50,7 @@
           this.title = "🐶";
           return `Today is First of ${this.months()[3]} ${this.title}, ${this.birthday} Chris!`;
         },
-        changeTitleAgain(){
+        changeTitleAgain() {
           this.title = "WOOOOW"
         }
       }
