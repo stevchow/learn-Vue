@@ -35,6 +35,11 @@
       <p> {{userDays}} Days</p>
       <h4> {{x}}/{{y}} </h4>
     </div>
+
+      <fieldset>
+        <legend>Press enter after you done typing</legend>
+        <input v-on:keyup.enter="pumpGo" type="text" />
+      </fieldset>
   </div>
 
 
@@ -69,6 +74,9 @@
         changeCoor(e){
           this.x = e.clientX;
           this.y = e.clientY;
+        },
+        pumpGo(){
+          alert('GOGO POWERRANGERS!')
         }
       }
     })
