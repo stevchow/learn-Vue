@@ -74,3 +74,4 @@ when we called a method on HTML file using {{}} or other stuff, and in that meth
 4. v-on:click="methodsfromvuehere"
 v-on is like addEventListener in vanillaJS, it listen to an Event and here it listen to a click. It can listen to other events to such as mouseenter, mouseleave, keyup etc
 
+I think writing this guideline waste my time. I'll just straight up to code, commenting the code, learn it, and make app. I don't see any good benefit to speed up my learning by doing this README, so I'll stop here. Bye, but I still pushing the code. 
