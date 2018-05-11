@@ -32,7 +32,8 @@
     <h5 v-html="aTagToGoogle"></h5>
     <div class="date__button">
       <button v-on:click="increaseDay(2, $event)">+ Day</button>
-      <p> {{userDays}} Days</p>
+      <button v-on:click="userDays+=10">+10 Day</button>
+      <p> {{userDays}} {{userDays * 3 > 100 ? "Long day" : "click more until I changed!"}}</p>
       <h4> {{x}}/{{y}} </h4>
     </div>
 
