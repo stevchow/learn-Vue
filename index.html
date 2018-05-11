@@ -18,10 +18,10 @@
       execution -->
       {{title }}
     </h1>
-    <h3>
+    <h3 v-on:mousemove="changeCoor">
       <br> {{months()}}
       <br> {{birthday}}
-      <br> {{callThis()}}
+      <br> {{callThis()}} - <span v-on:mousemove.stop="">DEADLY ZONE</span>
     </h3>
     <h2 v-once>
       {{title}}
@@ -31,8 +31,9 @@
     {{title}}
     <h5 v-html="aTagToGoogle"></h5>
     <div class="date__button">
-      <button v-on:click="increaseDay">+ Day</button>
+      <button v-on:click="increaseDay(2, $event)">+ Day</button>
       <p> {{userDays}} Days</p>
+      <h4> {{x}}/{{y}} </h4>
     </div>
   </div>
 
@@ -47,6 +48,8 @@
         linkToGoogle: 'https://google.com',
         aTagToGoogle: `<a href="https://amazon.com">Amazon</a>`,
         userDays: 0,
+        x:0,
+        y:0,
       },
       methods: {
         months() {
@@ -59,9 +62,14 @@
         changeTitleAgain() {
           this.title = "WOOOOW"
         },
-        increaseDay() {
-          this.userDays++;
+        increaseDay(twoDay, e) {
+          this.userDays+=twoDay;
+          console.log(e.target);
         },
+        changeCoor(e){
+          this.x = e.clientX;
+          this.y = e.clientY;
+        }
       }
     })
   </script>
