@@ -76,6 +76,13 @@
           return this.counter > 6 ? "Greater than 6" : "Lesser than 6"
         }
       },
+      watch: {
+        counter(){
+          setTimeout(() => {
+            this.counter = 0;
+          }, 2000);
+        }
+      },
       methods: {
         months() {
           return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
