@@ -16,12 +16,13 @@
       <!-- v-once is to not change the value of 'title'
       even its value has change after function
       execution -->
-      {{title }}   
+      {{title }}
     </h1>
     <h3 v-on:mousemove="changeCoor">
       <br> {{months()}}
       <br> {{birthday}}
-      <br> {{callThis()}} - <span v-on:mousemove.stop="">DEADLY ZONE</span>
+      <br> {{callThis()}} -
+      <span v-on:mousemove.stop="">DEADLY ZONE</span>
     </h3>
     <h2 v-once>
       {{title}}
@@ -37,25 +38,27 @@
       <h4> {{x}}/{{y}} </h4>
     </div>
 
-      <fieldset>
-        <legend>Press enter after you done typing</legend>
-        <input v-on:keyup.enter="pumpGo" type="text" />
-      </fieldset>
+    <fieldset>
+      <legend>Press enter after you done typing</legend>
+      <input v-on:keyup.enter="pumpGo" type="text" v-model="nameBind"/>
+      <p>{{nameBind}}</p>
+    </fieldset>
   </div>
-  
 
-  
+
+
   <script>
     const app = new Vue({
       el: '#calendar__widget--side',
       data: {
+        nameBind: "lalxxa",
         title: 'Months',
         birthday: 'Happy Birthday to you',
         linkToGoogle: 'https://google.com',
         aTagToGoogle: `<a href="https://amazon.com">Amazon</a>`,
         userDays: 0,
-        x:0,
-        y:0,
+        x: 0,
+        y: 0,
       },
       methods: {
         months() {
@@ -69,14 +72,14 @@
           this.title = "WOOOOW"
         },
         increaseDay(twoDay, e) {
-          this.userDays+=twoDay;
+          this.userDays += twoDay;
           console.log(e.target);
         },
-        changeCoor(e){
+        changeCoor(e) {
           this.x = e.clientX;
           this.y = e.clientY;
         },
-        pumpGo(){
+        pumpGo() {
           alert('GOGO POWERRANGERS!')
         }
       }
