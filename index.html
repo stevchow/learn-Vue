@@ -40,9 +40,17 @@
 
     <fieldset>
       <legend>Press enter after you done typing</legend>
-      <input v-on:keyup.enter="pumpGo" type="text" v-model="nameBind"/>
+      <input v-on:keyup.enter="pumpGo" type="text" v-model="nameBind" />
       <p>{{nameBind}}</p>
     </fieldset>
+
+    <div class="counter">
+      <button @click="counter++">Increase</button>
+      <button @click="counter--">Decrease</button>
+      <button @click="counterTwo++">++CounterTwo</button>
+      <p>Counter : {{counter}} | {{counterTwo}}</p>
+      <p>Info : {{info()}} | {{output}}</p>
+    </div>
   </div>
 
 
@@ -59,6 +67,14 @@
         userDays: 0,
         x: 0,
         y: 0,
+        counter: 0,
+        counterTwo: 0
+      },
+      computed: {
+        output() {
+          console.log('computed');
+          return this.counter > 6 ? "Greater than 6" : "Lesser than 6"
+        }
       },
       methods: {
         months() {
@@ -81,6 +97,10 @@
         },
         pumpGo() {
           alert('GOGO POWERRANGERS!')
+        },
+        info() {
+          console.log("method");
+          return this.counter > 6 ? "Greater than 6" : "Lesser than 6"
         }
       }
     })
