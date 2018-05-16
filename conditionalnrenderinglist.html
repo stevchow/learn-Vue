@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Conditional and Rendering List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="vue.js"></script>
+</head>
+
+<body>
+
+  <div class="app">
+    <p v-if="showMe">Hello <span>{{name}}</span></p>
+    <p v-else>BOOM!</p>
+    <p>Hello, world!</p>
+    <button @click="showMe = !showMe" style="outline: none">Test me</button>
+    <!-- template not rendered by html5, grouping v-if -->
+    <template v-if="showMe">
+      <h3>hahahaha</h3>
+      <span>sdpaks2312</span>
+    </template>
+  </div>
+
+
+
+  <script>
+    const app = new Vue({
+      el: ".app",
+      data: {
+        name: "Luffy",
+        showMe: false,
+      },
+      computed: {},
+      method: {},
+    })
+  </script>
+</body>
+
+</html>
