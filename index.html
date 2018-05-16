@@ -15,7 +15,7 @@
     .switcher {
       background-color: bisque;
       height: 10rem;
-      width: 6rem;
+      width: 10rem;
       border: 1px red solid;
       text-align: center;
       user-select: none;
@@ -23,7 +23,7 @@
 
     .switcher p {
       position: relative;
-      top: 3rem;
+      top: 4rem;
     }
 
     .redColor {
@@ -34,6 +34,11 @@
     .blueColor {
       color: white;
       background-color: blue;
+    }
+
+    .aquaColor {
+      color: white;
+      background-color: mediumaquamarine;
     }
   </style>
   <div id="calendar__widget--side">
@@ -81,6 +86,10 @@
   <div class="app2">
     <div class="switcher" @click="redIsOn = !redIsOn" :class="divClasses">
       <p>Click Me</p>
+    </div>
+    <div class="switcher" :class="[color, {redColor: redIsOn}]" >
+      <p>Click Me</p>
+      <input type="text" placeholder="redColor, blueColor, aquaColor" v-model="color">
     </div>
   </div>
 
@@ -152,6 +161,7 @@
       el: '.app2',
       data: {
         redIsOn: false,
+        color: 'aquaColor'
       },
       computed: {
         divClasses() {
