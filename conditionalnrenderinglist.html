@@ -29,6 +29,12 @@
       <li v-for="(fruit,i) in fruits">{{`${fruit} is frking delicious and with index number of ${i}`}}</li>
     </ol>
 
+    <ul>
+      <li v-for="object in objectsBro">
+        <div v-for="(val,key,i) in object"> {{key}}:{{val}} {{i}} </div>
+      </li>
+    </ul>
+
     <template v-for="(fruit,i) in fruits">
       <h3>{{fruit}}</h3>
       <p>{{i}} order</p>
@@ -43,7 +49,12 @@
       data: {
         name: "Luffy",
         showMe: false,
-        fruits: ['apple', 'banana', 'pear']
+        fruits: ['apple', 'banana', 'pear'],
+        objectsBro: [
+          { a: 11, b: 33, c: 'asdasd' },
+          { a: 111, b: 333, c: 'zzzz' },
+          { a: 113, b: 313, c: 'asdaszzzzd' }
+        ]
       },
       computed: {},
       method: {},
