@@ -26,7 +26,7 @@
     </template>
 
     <ol>
-      <li v-for="(fruit,i) in fruits">{{`${fruit} is frking delicious and with index number of ${i}`}}</li>
+      <li v-for="(fruit,i) in fruits" :key="fruit">{{`${fruit} is frking delicious and with index number of ${i}`}}</li>
     </ol>
     <hr>
     <ul>
@@ -40,6 +40,7 @@
       <h3>{{fruit}}</h3>
       <p>{{i}} order</p>
     </template>
+    <button @click="fruits.push('starFruit')">Add starFruit</button>
   </div>
 
 
