@@ -24,6 +24,10 @@
       <h3>hahahaha</h3>
       <span>sdpaks2312</span>
     </template>
+
+    <ol>
+      <li v-for="fruit in fruits">{{`${fruit} is frking delicious`}}</li>
+    </ol>
   </div>
 
 
@@ -34,6 +38,7 @@
       data: {
         name: "Luffy",
         showMe: false,
+        fruits: ['apple', 'banana', 'pear']
       },
       computed: {},
       method: {},
