@@ -12,9 +12,12 @@
 <body>
 
   <div class="app">
-    <p v-if="showMe">Hello <span>{{name}}</span></p>
+    <p v-if="showMe">Hello
+      <span>{{name}}</span>
+    </p>
     <p v-else>BOOM!</p>
     <p>Hello, world!</p>
+    <p v-show="showMe">V-SHOW not detaching element from HTML, just display none the element, unlike the v-if that detach the element</p>
     <button @click="showMe = !showMe" style="outline: none">Test me</button>
     <!-- template not rendered by html5, grouping v-if -->
     <template v-if="showMe">
