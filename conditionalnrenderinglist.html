@@ -28,13 +28,14 @@
     <ol>
       <li v-for="(fruit,i) in fruits">{{`${fruit} is frking delicious and with index number of ${i}`}}</li>
     </ol>
-
+    <hr>
     <ul>
       <li v-for="object in objectsBro">
         <div v-for="(val,key,i) in object"> {{key}}:{{val}} {{i}} </div>
       </li>
     </ul>
-
+    <hr>
+    <span v-for="n in 100">{{n}} </span>
     <template v-for="(fruit,i) in fruits">
       <h3>{{fruit}}</h3>
       <p>{{i}} order</p>
