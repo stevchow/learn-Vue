@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>low level RPG</title>
+  <script src="vue.js"></script>
+</head>
+
+<body>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      padding: 3rem;
+      background-image: url('envRPG.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    button {
+      outline: none;
+      padding: .6rem;
+      font-size: 1.2rem;
+      color: white;
+      border-style: none;
+      border-radius: .5rem;
+      background-color: rgb(248, 105, 69);
+      cursor: pointer;
+      box-shadow: 0px 5px 3px 0px rgb(62, 63, 62);
+      opacity: .9;
+    }
+
+    button:active {
+      box-shadow: none;
+      transform: translateY(1px)
+    }
+
+    button:disabled {
+      background-color: rgba(112, 100, 100, 0.349);
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+
+    .card {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .stakeHolder {
+      background-color: rgba(94, 90, 83, 0.486);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 1px .6rem 1rem 0px rgba(0, 0, 0, 0.411);
+    }
+
+    .health--bar {
+      background: linear-gradient(to right, #be93c5, #7bc6cc);
+      width: 180px;
+      height: 1.5rem;
+      transition: all .7s ease-out;
+    }
+
+    .health--num {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: chocolate;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    .gamepad {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 1rem;
+      margin-top: 1.5rem;
+      background-color: rgba(51, 69, 129, 0.788);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 1px .6rem 1rem 0px rgba(0, 0, 0, 0.411);
+    }
+
+    .updates {
+      margin-top: 1.5rem;
+      background-color: rgba(178, 221, 192, 0.637);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 1px .6rem 1rem 0px rgba(0, 0, 0, 0.411);
+    }
+  </style>
+
+  <div class="app">
+    <div class="card">
+      <div class="stakeHolder">
+        <p> {{playerOne.name}} </p>
+        <div class="health--bar" :style="{width: `${playerOne.health*2.4}px`}"></div>
+        <div class="health--num">
+          <p>{{playerOne.health}}</p>
+        </div>
+        <label for="playerOneName">Your name : </label>
+        <input type="text" id="playerOneName" v-model="playerOne.name">
+      </div>
+
+      <div class="stakeHolder">
+        <p> {{monsterOne.name}} </p>
+        <div class="health--bar" :style="{width: `${monsterOne.health*2.4}px`}"></div>
+        <div class="health--num">
+          <p>{{monsterOne.health}}</p>
+        </div>
+        <label for="monsterOneName">Monster name : </label>
+        <input type="text" id="monsterOneName" v-model="monsterOne.name">
+      </div>
+    </div>
+
+    <div class="gamepad">
+      <button @click="randomnessAttack">Attack</button>
+      <button @click="specialAttack" class="specialAttackElem" :disabled="buttonDisabled"> Special Attack ({{specialAttackTag}}) </button>
+      <button @click="healMe">Heal</button>
+      <button @click="giveUp">Give Up</button>
+    </div>
+
+    <div class="updates">
+      <div v-for="update in updates">{{update}}</div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    let specialAttackElem = document.querySelector('.specialAttackElem');
+
+    let n = 5;
+
+    const app = new Vue({
+      el: '.app',
+      data: {
+        specialAttackTag: 5,
+        buttonDisabled: false,
+        playerOne: {
+          name: "Player One",
+          health: 100,
+          attack: 10,
+          specialAttack: 15,
+          heal: 13,
+        },
+        monsterOne: {
+          name: "Thanos",
+          health: 100,
+          attack: 11,
+        },
+        updates: []
+      },
+      watch: {
+      },
+      computed: {},
+      methods: {
+        filterArray() {
+          if (this.updates.length > 7) {
+            this.updates = this.updates.splice(4, 6);
+          }
+        },
+        gameOver() {
+          if (this.playerOne.health <= 0) {
+            alert('You Lose..')
+          }
+          if (this.monsterOne.health <= 0) {
+            alert('You Win bro!')
+          }
+        },
+        giveUp() {
+          let giveUp = confirm("you giving up?");
+          if (giveUp) {
+            this.updates = [];
+            this.playerOne.health = 100;
+            this.monsterOne.health = 100;
+            this.buttonDisabled = false;
+            this.updates.push(`${this.playerOne.name} giving up!`)
+            alert('Game Over!');
+          }
+          else { alert('Keep fighting dude!') };
+        },
+        randomnessAttack() {
+          let playerOneAttack = Math.floor(Math.random() * this.playerOne.attack) + 1;
+          let monAttack = Math.floor(Math.random() * this.monsterOne.attack) + 1;
+
+          this.playerOne.health = this.playerOne.health - monAttack;
+
+          this.monsterOne.health = this.monsterOne.health - playerOneAttack;
+
+          this.updates.push(`${this.playerOne.name} attacking ${this.monsterOne.name} with ${playerOneAttack} power`);
+          this.updates.push(`${this.monsterOne.name} attacking ${this.playerOne.name} with ${monAttack} power`);
+
+          this.gameOver();
+
+          this.filterArray();
+
+        },
+
+        disabledSuperAttack() {
+          let self = this;
+          function countDown() {
+            n--;
+            if (n > 0) {
+              setTimeout(countDown, 1000);
+            }
+            self.specialAttackTag = n;
+            if (n <= 0) self.specialAttackTag = 5;
+          }
+          setTimeout(countDown, 1000);
+          n = 5;
+          setTimeout(() => {
+            this.buttonDisabled = false;
+          }, 5000);
+        },
+
+        specialAttack() {
+          let playerOneAttack = Math.floor(Math.random() * this.playerOne.specialAttack) + 1;
+          let monAttack = Math.floor(Math.random() * this.monsterOne.attack) + 1;
+
+          this.playerOne.health = this.playerOne.health - monAttack;
+
+          this.monsterOne.health = this.monsterOne.health - playerOneAttack;
+
+          this.buttonDisabled = true;
+
+          this.disabledSuperAttack();
+
+          this.updates.push(`${this.playerOne.name} attacking ${this.monsterOne.name} with ${playerOneAttack} power`);
+          this.updates.push(`${this.monsterOne.name} attacking ${this.playerOne.name} with ${monAttack} power`);
+
+          this.gameOver();
+
+          this.filterArray();
+        },
+
+        healMe() {
+          let playerOneHeal = Math.floor(Math.random() * this.playerOne.heal) + 1;
+          let monAttack = Math.floor(Math.random() * this.monsterOne.attack) + 1;
+
+          this.playerOne.health = this.playerOne.health + playerOneHeal - monAttack;
+
+          this.updates.push(`${this.playerOne.name} heal himself with ${playerOneHeal} power`);
+          this.updates.push(`${this.monsterOne.name} attacking ${this.playerOne.name} with ${monAttack} power`);
+
+          this.gameOver();
+
+          this.filterArray();
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>
