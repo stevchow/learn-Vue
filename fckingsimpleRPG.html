@@ -122,12 +122,16 @@
       </div>
     </div>
 
-    <div class="gamepad">
+    <section v-if="!gameIsRunning" class="gamepad">
+      <button @click="startGame">Start New Game</button>
+    </section>
+
+    <section class="gamepad" v-else>
       <button @click="randomnessAttack">Attack</button>
       <button @click="specialAttack" class="specialAttackElem" :disabled="buttonDisabled"> Special Attack ({{specialAttackTag}}) </button>
       <button @click="healMe">Heal</button>
       <button @click="giveUp">Give Up</button>
-    </div>
+    </section>
 
     <div class="updates">
       <div v-for="update in updates">{{update}}</div>
@@ -145,6 +149,7 @@
     const app = new Vue({
       el: '.app',
       data: {
+        gameIsRunning: false,
         specialAttackTag: 5,
         buttonDisabled: false,
         playerOne: {
@@ -165,27 +170,38 @@
       },
       computed: {},
       methods: {
+        startGame() {
+          this.gameIsRunning = true;
+          this.startFresh();
+        },
         filterArray() {
           if (this.updates.length > 7) {
-            this.updates = this.updates.splice(4, 6);
+            this.updates = this.updates.splice(2, 7);
           }
         },
         gameOver() {
           if (this.playerOne.health <= 0) {
-            alert('You Lose..')
+            alert('You Lose..');
+            this.gameIsRunning = false;
           }
           if (this.monsterOne.health <= 0) {
-            alert('You Win bro!')
+            alert('You Win bro!');
+            this.gameIsRunning = false;
           }
+        },
+        startFresh() {
+          this.updates = [];
+          this.playerOne.health = 100;
+          this.monsterOne.health = 100;
+          this.buttonDisabled = false;
+
         },
         giveUp() {
           let giveUp = confirm("you giving up?");
           if (giveUp) {
-            this.updates = [];
-            this.playerOne.health = 100;
-            this.monsterOne.health = 100;
-            this.buttonDisabled = false;
-            this.updates.push(`${this.playerOne.name} giving up!`)
+            this.startFresh();
+            this.updates.push(`${this.playerOne.name} giving up!`);
+            this.gameIsRunning = false;
             alert('Game Over!');
           }
           else { alert('Keep fighting dude!') };
