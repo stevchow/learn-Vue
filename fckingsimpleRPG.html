@@ -263,8 +263,11 @@
         healMe() {
           let playerOneHeal = Math.floor(Math.random() * this.playerOne.heal) + 1;
           let monAttack = Math.floor(Math.random() * this.monsterOne.attack) + 1;
-
-          this.playerOne.health = this.playerOne.health + playerOneHeal - monAttack;
+          if (this.playerOne.health <= 95) {
+            this.playerOne.health = this.playerOne.health + playerOneHeal - monAttack;
+          } else {
+            this.playerOne.health = 100;
+          }
 
           this.updates.push(`${this.playerOne.name} heal himself with ${playerOneHeal} power`);
           this.updates.push(`${this.monsterOne.name} attacking ${this.playerOne.name} with ${monAttack} power`);
