@@ -133,7 +133,7 @@
       <button @click="giveUp">Give Up</button>
     </section>
 
-    <div class="updates">
+    <div class="updates" v-if="updates.length > 0">
       <div v-for="update in updates">{{update}}</div>
     </div>
   </div>
