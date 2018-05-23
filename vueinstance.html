@@ -22,12 +22,17 @@
   </button>
 
   <script>
+    const data = {
+      view: "awesome"
+    }
+
     const vm1 = new Vue({
       el: '#app1',
-      data: {
-        view: "awesome",
-      }
+      data: data,
     });
+
+    // vm1.newData = "yoooohoo";
+    // even it is setup in vm1 object but it is useless if not declared in vue way inside vue instance
 
     const btn = document.querySelector('.outsideVue');
 
