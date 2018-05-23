@@ -16,6 +16,7 @@
   <div id="app2">
     {{view}}
     <button @click="changeMe">change DIV one</button>
+    <p ref="readMe">read me without using querySelector</p>
   </div>
 
   <button class="outsideVue">I am not inside vue instance.
@@ -37,7 +38,8 @@
     const btn = document.querySelector('.outsideVue');
 
     btn.addEventListener('click', () => {
-      vm2.view = "changed from outside vue instance"
+      vm2.view = "changed from outside vue instance";
+      vm2.$refs.readMe.innerText += "! Done, accessing you with vue $ref, one way binding that can be replaced."
     })
 
     const vm2 = new Vue({
@@ -47,7 +49,8 @@
       },
       methods: {
         changeMe() {
-          vm1.view = "I changed you! by accessing you through const variable where your vue instances stored."
+          vm1.view = "I changed you! by accessing you through const variable where your vue instances stored.";
+
         },
       }
     })
