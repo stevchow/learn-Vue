@@ -22,6 +22,8 @@
   <button class="outsideVue">I am not inside vue instance.
   </button>
 
+  <div id="app3"></div>
+
   <script>
     const data = {
       view: "awesome"
@@ -53,7 +55,15 @@
 
         },
       }
-    })
+    });
+
+    const vm3 = new Vue({
+      template: '<h1 style="color:mediumseagreen;"> World </h1>'
+    });
+
+    // vm3.$mount('#app3');
+    vm3.$mount();
+    document.querySelector('#app3').appendChild(vm3.$el);
   </script>
 </body>
 
