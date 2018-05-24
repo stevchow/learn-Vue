@@ -12,11 +12,17 @@
 <body>
 
 
-  <div id="app1">I AM DIV one -> {{view}}</div>
+  <div id="app1">
+    I AM DIV one -> {{view}}
+    <handsome></handsome>
+  </div>
   <div id="app2">
     {{view}}
     <button @click="changeMe">change DIV one</button>
     <p ref="readMe">read me without using querySelector</p>
+
+    <handsome></handsome>
+
   </div>
 
   <button class="outsideVue">I am not inside vue instance.
@@ -24,10 +30,16 @@
 
   <div id="app3"></div>
 
+
+
   <script>
     const data = {
       view: "awesome"
     }
+
+    Vue.component('handsome', {
+      template: '<h1>lolololol</h1>'
+    })
 
     const vm1 = new Vue({
       el: '#app1',
@@ -64,6 +76,8 @@
     // vm3.$mount('#app3');
     vm3.$mount();
     document.querySelector('#app3').appendChild(vm3.$el);
+
+
   </script>
 </body>
 
