@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <first-cmp></first-cmp>
+    <hr>
+    <first-cmp></first-cmp>
+  </div>
+
+  <script>
+    Vue.component('first-cmp', {
+      data() {
+        return {
+          status: 200,
+          nation: 'UK',
+        }
+      },
+      template: `<div> 
+      <h1>Status {{status}} nationality {{nation}}<h1> 
+      <span @click="alertingHi">Hi</span></div>`,
+      methods: {
+        alertingHi() {
+          alert('hi');
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app'
+    })
+  </script>
+
+</body>
+
+</html>
