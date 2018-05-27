@@ -18,6 +18,8 @@
   </div>
 
   <script>
+    //const cmp = {} //for local component
+    //below is global component
     Vue.component('first-cmp', {
       data() {
         return {
@@ -42,6 +44,7 @@
 
     const app = new Vue({
       el: '#app'
+      //components : {'my-cmp': cmp} //setup component locally by refering to a variable
     })
   </script>
 
