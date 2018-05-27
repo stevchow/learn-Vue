@@ -11,6 +11,7 @@
 
 <body>
   <div id="app">
+    <p>Click the button of each of them and see the independent of scope they have, every component have their own scope</p>
     <first-cmp></first-cmp>
     <hr>
     <first-cmp></first-cmp>
@@ -25,11 +26,16 @@
         }
       },
       template: `<div> 
-      <h1>Status {{status}} nationality {{nation}}<h1> 
-      <span @click="alertingHi">Hi</span></div>`,
+      <h1>Status {{status}} nationality {{nation}}</h1> 
+      <p @click="alertingHi" style="display:inline-block">hola</p>
+      <span><button @click="changeMe">Click both of us</button></span>
+      </div>`,
       methods: {
         alertingHi() {
           alert('hi');
+        },
+        changeMe() {
+          this.status = 'OK'
         }
       }
     })
