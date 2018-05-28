@@ -1,5 +1,5 @@
 <template>
-  <nationality-flag></nationality-flag>
+  <Hero></Hero>
 </template>
 
 <script>

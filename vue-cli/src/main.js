@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Nationality from './Hero.vue'
+import Hero from './Hero.vue'
 
-Vue.component('nationality-flag', Nationality)
+Vue.component('Hero', Hero)
 
 new Vue({
   el: '#app',

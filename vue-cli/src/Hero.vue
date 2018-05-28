@@ -1,23 +1,14 @@
 <template>
   <div>
-    <h1>{{flag}} {{nationality}}</h1>
-    <button @click="changeNationality">Change Nationality</button>
+    <NationalityFlag v-for="nat in 5" :key="nat"></NationalityFlag>
   </div>
 </template>
 
 <script>
+import NationalityFlag from "./NationalityFlag.vue";
 export default {
-  data() {
-    return {
-      flag : "🇮🇩",
-      nationality: "INA"
-    };
-  },
-  methods: {
-    changeNationality() {
-      this.flag = "🌏"
-      this.nationality = "WORLD";
-    }
+  components: {
+    NationalityFlag
   }
 };
 </script>
