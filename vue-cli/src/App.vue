@@ -1,5 +1,8 @@
 <template>
-  <Hero></Hero>
+  <div class="container">
+    <Hero></Hero>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
