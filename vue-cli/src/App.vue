@@ -6,7 +6,15 @@
 </template>
 
 <script>
+import Hero from "./components/Hero.vue";
+import Footer from "./components/footer.vue";
 
+export default {
+  components: {
+    Hero,
+    Footer
+  }
+};
 </script>
 
 <style>
