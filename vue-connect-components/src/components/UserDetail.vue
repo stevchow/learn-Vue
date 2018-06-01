@@ -8,7 +8,11 @@
 
 <script>
 export default {
-  props: ["gogopowerrangers"],
+  props: {
+    'gogopowerrangers' : {
+      type: String,
+    }
+  },
   methods: {
     reversePRanger() {
       return this.gogopowerrangers

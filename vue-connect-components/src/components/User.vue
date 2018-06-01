@@ -6,7 +6,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :gogopowerrangers="name"></app-user-detail>
+                <app-user-detail :gogopowerrangers='name'></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -22,7 +22,7 @@ import UserEdit from "./UserEdit.vue";
 export default {
   data() {
     return {
-      name: "azzz"
+      name: "cuxrtuv"
     };
   },
   methods: {
