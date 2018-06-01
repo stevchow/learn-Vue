@@ -3,14 +3,15 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>My name is {{reversePRanger()}}</p>
+        <button @click="resetName">reset Name</button>
     </div>
 </template>
 
 <script>
 export default {
   props: {
-    'gogopowerrangers' : {
-      type: String,
+    gogopowerrangers: {
+      type: String
     }
   },
   methods: {
@@ -19,6 +20,10 @@ export default {
         .split("")
         .reverse()
         .join("");
+    },
+    resetName() {
+      this.gogopowerrangers = "cuxrtuv";
+      this.$emit("resetingName", this.gogopowerrangers);
     }
   }
 };
