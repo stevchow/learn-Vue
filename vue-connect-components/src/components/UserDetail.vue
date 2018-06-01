@@ -5,6 +5,7 @@
         <p>My name is {{reversePRanger()}}</p>
         <button @click="resetName">reset Name</button>
         <button title="with no custom event, but using parent function that executed in child component using props." @click="resetFnParent()">resetName (Parents function)</button>
+        <p>Age : {{userAge}}</p>
     </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
     gogopowerrangers: {
       type: String
     },
-    resetFnParent: Function
+    resetFnParent: Function,
+    userAge: Number
   },
   methods: {
     reversePRanger() {

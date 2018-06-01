@@ -4,17 +4,22 @@
         <p>I'm an awesome User!</p>
         {{name}}
         <button @click="changeName">Change name</button>
+        <p>{{age}}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <app-user-detail :gogopowerrangers="name" @resetingName="name = $event"
                 :resetFnParent="resetName"
+                :userAge="age"
                 >
 
                 </app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit
+                :userAge="age"
+                @userAgeChanged="age = $event"
+                ></app-user-edit>
             </div>
         </div>
     </div>
@@ -27,7 +32,8 @@ import UserEdit from "./UserEdit.vue";
 export default {
   data() {
     return {
-      name: "cuxrtuv"
+      name: "cuxrtuv",
+      age: 99
     };
   },
   methods: {
