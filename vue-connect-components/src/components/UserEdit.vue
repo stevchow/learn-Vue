@@ -8,19 +8,21 @@
 </template>
 
 <script>
+import { eventBus } from "../main.js";
+
 export default {
-    props:['userAge'],
-    methods: {
-        changeAge(){
-            this.userAge = 7;
-            this.$emit('userAgeChanged', this.userAge)
-        }
+  props: ["userAge"],
+  methods: {
+    changeAge() {
+      this.userAge = 7;
+      eventBus.$emit("userAgeChanged", this.userAge);
     }
-}
+  }
+};
 </script>
 
 <style scoped>
-    div {
-        background-color: lightgreen;
-    }
+div {
+  background-color: lightgreen;
+}
 </style>

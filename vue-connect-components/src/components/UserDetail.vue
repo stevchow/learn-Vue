@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { eventBus } from "../main.js";
 export default {
   props: {
     gogopowerrangers: {
@@ -29,6 +30,11 @@ export default {
       this.gogopowerrangers = "cuxrtuv";
       this.$emit("resetingName", this.gogopowerrangers);
     }
+  },
+  created() {
+    eventBus.$on("userAgeChanged", age => {
+      this.userAge = age;
+    });
   }
 };
 </script>
