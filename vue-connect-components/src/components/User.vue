@@ -7,7 +7,11 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :gogopowerrangers="name" @resetingName="name = $event"></app-user-detail>
+                <app-user-detail :gogopowerrangers="name" @resetingName="name = $event"
+                :resetFnParent="resetName"
+                >
+
+                </app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -29,6 +33,9 @@ export default {
   methods: {
     changeName() {
       this.name = "YOMAN";
+    },
+    resetName() {
+      this.name = "cuxrtuv";
     }
   },
   components: {
