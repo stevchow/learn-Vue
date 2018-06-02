@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{quote}}</p>
+    <slot></slot>
   </div>
 </template>
 
@@ -12,14 +12,18 @@ div {
   margin: 2rem auto;
   box-shadow: 1px 1px 7px 1px gray;
 }
+
+h3 {
+  color: fuchsia;
+}
 </style>
 
 
 <script>
 export default {
-  props: {
-    quote: String
-  }
+  // props: {
+  //   quote: String
+  // }
 };
 </script>
 
