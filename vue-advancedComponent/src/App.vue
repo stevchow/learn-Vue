@@ -8,8 +8,9 @@
       <div class="col-xs-12">
         <!-- <app-quote quote="Life starts where fears end!"></app-quote> -->
         <app-quote>
-          <h3 slot="titlez">{{quoteHeader}}</h3>
-          <p slot="content">Most of the time, All things you worry about will not happen</p>
+          <h3 slot="title">{{quoteHeader}}</h3>
+          <!-- <p slot="placeholder">Ready 3,2,1! GO!</p> -->
+          <p>Most of the time, All things you worry about will not happen</p>
         </app-quote>
       </div>
     </div>

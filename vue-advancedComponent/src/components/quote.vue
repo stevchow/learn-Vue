@@ -1,11 +1,12 @@
 <template>
   <div>
     <div class="title">
-      <slot name="titlez"></slot>
-      <p>zihxsd</p>
+      <slot name="title"></slot>
+      <span><slot name="placeholder">Loading ...</slot></span>
     </div>
     <div>
-      <slot name="content"></slot>
+      <!-- default slow because we not define both name="" and slot="" -->
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -24,8 +25,8 @@ h3 {
 }
 
 .title {
-  color: rgb(255, 154, 117);
-  text-transform: uppercase;
+  color: rgb(143, 128, 122);
+  text-transform: capitalize;
 }
 </style>
 
