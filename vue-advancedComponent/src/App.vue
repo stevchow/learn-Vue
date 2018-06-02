@@ -12,9 +12,13 @@
 
         <!-- dynamic render component, very fcking usefull for SPA, just set a flag variable and change it base on event and <component></component> tag will render for you-->
 
-        <component :is="selectedComponent">
-          <p>Default render</p>
-        </component>
+        <!-- keep-alive caching the component, keep them alive not destroyed them, make web page faster -->
+        <keep-alive>
+          <component :is="selectedComponent">
+            <p>Default render</p>
+          </component>
+        </keep-alive>
+
         
         <!-- <app-quote>
           <h3 slot="title">{{quoteHeader}}</h3> -->
