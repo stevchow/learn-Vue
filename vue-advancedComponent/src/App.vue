@@ -11,6 +11,7 @@
           <h3 slot="title">{{quoteHeader}}</h3>
           <!-- <p slot="placeholder">Ready 3,2,1! GO!</p> -->
           <p>Most of the time, All things you worry about will not happen</p>
+          <p style="text-align:right;">~ somebody</p>
         </app-quote>
       </div>
     </div>
