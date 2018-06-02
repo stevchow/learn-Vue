@@ -1,6 +1,12 @@
 <template>
   <div>
-    <slot></slot>
+    <div class="title">
+      <slot name="titlez"></slot>
+      <p>zihxsd</p>
+    </div>
+    <div>
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
@@ -14,7 +20,12 @@ div {
 }
 
 h3 {
-  color: fuchsia;
+  color: rgb(255, 78, 78);
+}
+
+.title {
+  color: rgb(255, 154, 117);
+  text-transform: uppercase;
 }
 </style>
 

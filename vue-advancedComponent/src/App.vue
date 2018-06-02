@@ -8,8 +8,8 @@
       <div class="col-xs-12">
         <!-- <app-quote quote="Life starts where fears end!"></app-quote> -->
         <app-quote>
-          <h3>{{quoteHeader}}</h3>
-          <p>Most of the time, All things you worry about will not happen</p>
+          <h3 slot="titlez">{{quoteHeader}}</h3>
+          <p slot="content">Most of the time, All things you worry about will not happen</p>
         </app-quote>
       </div>
     </div>
@@ -19,10 +19,10 @@
 <script>
 import Quote from "./components/quote";
 export default {
-  data: function(){
+  data: function() {
     return {
       quoteHeader: "Have a good day!"
-    }
+    };
   },
   components: {
     appQuote: Quote
