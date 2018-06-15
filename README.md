@@ -75,3 +75,17 @@ when we called a method on HTML file using {{}} or other stuff, and in that meth
 v-on is like addEventListener in vanillaJS, it listen to an Event and here it listen to a click. It can listen to other events to such as mouseenter, mouseleave, keyup etc
 
 I think writing this guideline waste my time. I'll just straight up to code, commenting the code, learn it, and make app. I don't see any good benefit to speed up my learning by doing this README, so I'll stop here. Bye, but I still pushing the code. 
+
+--- 
+
+notes : 
+0. remember to import component and use component property when using component
+1. passing data from parents to child component using : props 
+2. for dynamic rendering component on the same page, we can use component tag with :is directive and we define the value or the name of the component we want to rendering out. keep-alive tag is for keep the cache while switching the component.```html 
+<keep-alive>
+  <component :is="selectedColorComponent">
+    <p>Default render</p>
+  </component>
+</keep-alive>```
+3. remember vue lifecycle method like created(), deactivated(), activated()
+4. more advanced concept like eventBus or $emit need more learning.
