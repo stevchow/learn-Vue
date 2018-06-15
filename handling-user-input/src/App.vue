@@ -11,7 +11,7 @@
                                 type="email"
                                 id="email"
                                 class="form-control"
-                                v-model="userEmail"
+                                v-model="user.user1.email"
                                 required>
                     </div>
                     <div class="form-group">
@@ -19,7 +19,8 @@
                         <input
                                 type="password"
                                 id="password"
-                                class="form-control">
+                                class="form-control"
+                                v-model.lazy="user.user1.password">
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
@@ -27,7 +28,10 @@
                                 type="number"
                                 id="age"
                                 class="form-control"
-                                min="17">
+                                min="17"
+                                max="99"
+                                v-model="user.user1.age"
+                                >
                     </div>
 
                 </div>
@@ -39,7 +43,8 @@
                     <textarea
                             id="message"
                             rows="5"
-                            class="form-control"></textarea>
+                            class="form-control"
+                            v-model="user.user1.message"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -104,10 +109,10 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Mail: {{userEmail}} </p>
-                        <p>Password:</p>
-                        <p>Age:</p>
-                        <p>Message: </p>
+                        <p>Mail: {{user.user1.email}} </p>
+                        <p>Password: {{user.user1.password}}</p>
+                        <p>Age: {{user.user1.age}}</p>
+                        <p style="white-space:pre;">Message: {{user.user1.message}}</p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
                             <li></li>
@@ -126,7 +131,14 @@
 export default {
   data() {
     return {
-      userEmail: ""
+      user: {
+        user1: {
+          email: "",
+          password: "",
+          age: 22,
+          message: ""
+        }
+      }
     };
   }
 };
