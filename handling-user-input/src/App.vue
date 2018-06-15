@@ -54,13 +54,15 @@
                             <input
                                     type="checkbox"
                                     id="sendmail"
-                                    value="SendMail"> Send Mail
+                                    value="SendMail"
+                                    v-model="user.user1.sendMailArr"> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
                                     id="sendInfomail"
-                                    value="SendInfoMail"> Send Infomail
+                                    value="SendInfoMail"
+                                    v-model="user.user1.sendMailArr"> Send Infomail
                         </label>
                     </div>
 
@@ -115,7 +117,7 @@
                         <p style="white-space:pre;">Message: {{user.user1.message}}</p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
-                            <li></li>
+                            <li v-for="(item, index) in user.user1.sendMailArr" :key="index">{{item}}</li>
                         </ul>
                         <p>Gender:</p>
                         <p>Priority:</p>
@@ -136,7 +138,8 @@ export default {
           email: "",
           password: "",
           age: 22,
-          message: ""
+          message: "",
+          sendMailArr: []
         }
       }
     };
