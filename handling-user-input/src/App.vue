@@ -91,8 +91,9 @@
                     <label for="priority">Priority</label>
                     <select
                             id="priority"
-                            class="form-control">
-                        <option></option>
+                            class="form-control"
+                            v-model="selectedPriority">
+                        <option v-for="priority in priorities" :key="priority.id">{{priority}}</option>
                     </select>
                 </div>
             </div>
@@ -121,8 +122,8 @@
                         <ul>
                             <li v-for="(item, index) in user.user1.sendMailArr" :key="index">{{item}}</li>
                         </ul>
-                        <p>Gender:</p>
-                        <p>Priority:</p>
+                        <p>Gender: {{user.user1.gender }}</p>
+                        <p>Priority: {{selectedPriority}}</p>
                         <p>Switched:</p>
                     </div>
                 </div>
@@ -144,7 +145,9 @@ export default {
           sendMailArr: [],
           gender: "Male"
         }
-      }
+      },
+      selectedPriority: "high",
+      priorities: ["high", "medium", "low"]
     };
   }
 };
