@@ -13,6 +13,7 @@
                                 class="form-control"
                                 v-model="user.user1.email"
                                 required>
+                        <!-- v-model behind the scene -> :value="user.user1.email" @input="user.user1.email = $event.target.value" -->
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -86,7 +87,7 @@
                     </label>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-bottom: 1.6rem;">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
                     <label for="priority">Priority</label>
                     <select
@@ -95,6 +96,12 @@
                             v-model="selectedPriority">
                         <option v-for="priority in priorities" :key="priority.id">{{priority}}</option>
                     </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <p>single : </p>
+                    <app-switch v-model="dataValue"></app-switch>{{dataValue}}
                 </div>
             </div>
             <hr>
@@ -124,7 +131,7 @@
                         </ul>
                         <p>Gender: {{user.user1.gender }}</p>
                         <p>Priority: {{selectedPriority}}</p>
-                        <p>Switched:</p>
+                        <p>Switched: {{dataValue}}</p>
                     </div>
                 </div>
             </div>
@@ -133,6 +140,8 @@
 </template>
 
 <script>
+import Switch from "./Switch";
+
 export default {
   data() {
     return {
@@ -146,9 +155,13 @@ export default {
           gender: "Male"
         }
       },
+      dataValue: false,
       selectedPriority: "high",
       priorities: ["high", "medium", "low"]
     };
+  },
+  components: {
+    appSwitch: Switch
   }
 };
 </script>
