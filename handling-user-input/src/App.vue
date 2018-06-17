@@ -74,13 +74,15 @@
                         <input
                                 type="radio"
                                 id="male"
-                                value="Male"> Male
+                                value="Male"
+                                v-model="user.user1.gender"> Male
                     </label>
                     <label for="female">
                         <input
                                 type="radio"
                                 id="female"
-                                value="Female"> Female
+                                value="Female"
+                                v-model="user.user1.gender"> Female
                     </label>
                 </div>
             </div>
@@ -139,7 +141,8 @@ export default {
           password: "",
           age: 22,
           message: "",
-          sendMailArr: []
+          sendMailArr: [],
+          gender: "Male"
         }
       }
     };
