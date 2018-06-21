@@ -7,6 +7,12 @@ Vue.directive('highlight', {
   }
 })
 
+Vue.directive('highlightInput', {
+  bind(el, binding, vnode) {
+    el.style.backgroundColor = binding.value;
+  }
+})
+
 new Vue({
   el: '#app',
   render: h => h(App)

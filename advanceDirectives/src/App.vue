@@ -11,6 +11,10 @@
         Date of birth: <input type="text" size="22" placeholder="DD/MM/YYYY">
       </fieldset>
     </form>
+    <hr>
+    <h1>Change the input with color name, and it will change the hightlight color</h1>
+    <input type="string" v-model="colorHighlight">
+    <h1 v-highlightInput="colorHighlight">CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
   </div>
 </template>
 
@@ -20,7 +24,8 @@ export default {
   data() {
     return {
       cool: "asdasz222d",
-      email: "asd@asd.com"
+      email: "asd@asd.com",
+      colorHighlight: "magenta"
     };
   }
 };
