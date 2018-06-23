@@ -25,8 +25,13 @@ export default {
     return {
       cool: "asdasz222d",
       email: "asd@asd.com",
-      colorHighlight: "magenta"
+      colorHighlight: "red"
     };
+  },
+  methods: {
+    changedColor(x) {
+      this.colorHighlight = x;
+    }
   }
 };
 </script>

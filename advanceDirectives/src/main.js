@@ -8,7 +8,7 @@ Vue.directive('highlight', {
 })
 
 Vue.directive('highlightInput', {
-  bind(el, binding, vnode) {
+  componentUpdated(el, binding, vnode) {
     el.style.backgroundColor = binding.value;
   }
 })
