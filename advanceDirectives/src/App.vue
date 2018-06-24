@@ -15,7 +15,7 @@
     <h1>Change the input with color name, and it will change the hightlight color</h1>
     <input type="string" v-model="colorHighlight">
     <h1 v-highlightInput="colorHighlight">CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
-    <h1 v-local-highlight.delayedx="colorHighlight">local - CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
+    <h1 v-local-highlight:colorText.delayedx.blink="colorHighlight">local - CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
     <h1 v-highlightInput:colorText.delayed="colorHighlight">CHANGE MY text color with argument pass through custom v-directive:arg="value" {{colorHighlight}} - with 1s delay time</h1>
   </div>
 </template>
@@ -42,13 +42,31 @@ export default {
         if (binding.modifiers["delayedx"]) {
           delayTime = 1000;
         }
-        setTimeout(() => {
-          if (binding.arg == "colorText") {
-            el.style.color = binding.value;
-          } else {
-            el.style.backgroundColor = binding.value;
-          }
-        }, delayTime);
+        if (binding.modifiers["blink"]) {
+          let mainColor = binding.value;
+          let secondColor = "white";
+          let curColor = mainColor;
+          curColor === secondColor
+            ? (curColor = mainColor)
+            : (curColor = secondColor);
+          setTimeout(() => {
+            setInterval(() => {
+              if (binding.arg == "colorText") {
+                el.style.color = curColor;
+              } else {
+                el.style.backgroundColor = curColor;
+              }
+            }, 500);
+          }, delayTime);
+        } else {
+          setTimeout(() => {
+            if (binding.arg == "colorText") {
+              el.style.color = binding.value;
+            } else {
+              el.style.backgroundColor = binding.value;
+            }
+          }, delayTime);
+        }
       }
     }
   }
