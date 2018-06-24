@@ -15,7 +15,7 @@
     <h1>Change the input with color name, and it will change the hightlight color</h1>
     <input type="string" v-model="colorHighlight">
     <h1 v-highlightInput="colorHighlight">CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
-    <h1 v-highlightInput:colorText="colorHighlight">CHANGE MY text color with argument pass through custom v-directive:arg="value" {{colorHighlight}}</h1>
+    <h1 v-highlightInput:colorText.delayed="colorHighlight">CHANGE MY text color with argument pass through custom v-directive:arg="value" {{colorHighlight}} - with 1s delay time</h1>
   </div>
 </template>
 

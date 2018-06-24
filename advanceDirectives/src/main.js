@@ -9,11 +9,17 @@ Vue.directive('highlight', {
 
 Vue.directive('highlightInput', {
   componentUpdated(el, binding, vnode) {
-    if (binding.arg == 'colorText') {
-      el.style.color = binding.value;
-    }else{
-      el.style.backgroundColor = binding.value;
+    let delayTime = 0;
+    if (binding.modifiers['delayed']) {
+      delayTime = 1000;
     }
+    setTimeout(() => {
+      if (binding.arg == 'colorText') {
+        el.style.color = binding.value;
+      } else {
+        el.style.backgroundColor = binding.value;
+      }
+    }, delayTime);
   }
 })
 
