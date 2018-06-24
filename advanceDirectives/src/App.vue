@@ -15,6 +15,7 @@
     <h1>Change the input with color name, and it will change the hightlight color</h1>
     <input type="string" v-model="colorHighlight">
     <h1 v-highlightInput="colorHighlight">CHANGE MY HIGHLIGHT {{colorHighlight}}</h1>
+    <h1 v-highlightInput:colorText="colorHighlight">CHANGE MY text color with argument pass through custom v-directive:arg="value" {{colorHighlight}}</h1>
   </div>
 </template>
 
@@ -25,7 +26,7 @@ export default {
     return {
       cool: "asdasz222d",
       email: "asd@asd.com",
-      colorHighlight: "red"
+      colorHighlight: "magenta"
     };
   },
   methods: {
