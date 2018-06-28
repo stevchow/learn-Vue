@@ -21,6 +21,7 @@
 </template>
 
 <script>
+//@ts-check
 export default {
   name: "app",
   data() {
@@ -30,28 +31,23 @@ export default {
       colorHighlight: "magenta"
     };
   },
-  methods: {
-    changedColor(x) {
-      this.colorHighlight = x;
-    }
-  },
   directives: {
     "local-highlight": {
       componentUpdated(el, binding, vnode) {
         let delayTime = 0;
         if (binding.modifiers["delayedx"]) {
-          delayTime = 1000;
+          delayTime = 3000;
         }
         if (binding.modifiers["blink"]) {
           let mainColor = binding.value;
-          let secondColor = "white";
+          let secondColor = "red";
           let curColor = mainColor;
-          curColor === secondColor
-            ? (curColor = mainColor)
-            : (curColor = secondColor);
           setTimeout(() => {
             setInterval(() => {
-              if (binding.arg == "colorText") {
+              curColor === secondColor
+                ? (curColor = mainColor)
+                : (curColor = secondColor);
+              if (binding.arg === "colorText") {
                 el.style.color = curColor;
               } else {
                 el.style.backgroundColor = curColor;
