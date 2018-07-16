@@ -1,5 +1,7 @@
 # adv-directives
 
+> CHANGE app-blabla.vue file name to app.vue that you want to host on your localhost
+
 > A Vue.js project
 
 ## Build Setup
