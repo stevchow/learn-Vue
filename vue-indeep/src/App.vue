@@ -9,29 +9,31 @@
     <ul>
       <li v-for="(item, index) in filteredSearch" :key="index">{{item}}</li>
     </ul>
+    <hr>
+    <p>How to register computed properties globally? MIXINS to save. Just create the .js file with repetitive code inside it and just export it as new variable and import it wherever you want. So, no code duplication.</p>
+    <list></list>
   </div>
 </template>
 <script>
+import List from "./components/List";
+import { filteredMixins } from "./mixins/filteredMixins.js";
 export default {
   data() {
     return {
       textHello1:
         "Hello, World. I am lowercase-ted, filter not changing the value, it only transform OUTPUT!! THIS FILTER IS FROM LOCAL FILTER, HOW ABOUT GLOBAL ONE?",
       textHello2:
-        "Hello, World. I am uppercase-ted after lowercase-ted, and I am globally declared with Vue.filter()",
-      textFiltered: "",
-      cars: ["volvo", "bmw", "toyota", "honda", "chevy", "ford"]
+        "Hello, World. I am uppercase-ted after lowercase-ted, and I am globally declared with Vue.filter()"
     };
+  },
+  components: {
+    List
   },
   filters: {
     toLowerCase(val) {
       return val.toLowerCase();
     }
   },
-  computed: {
-    filteredSearch() {
-      return this.cars.filter(a => a.match(this.textFiltered));
-    }
-  }
+  mixins: [filteredMixins]
 };
 </script>
