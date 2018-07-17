@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 // import App from './AppDirective.vue'
+// import App from './AppFilterMixins.vue'
 
 Vue.directive('highlight', {
   bind(el, binding, vnode) {
