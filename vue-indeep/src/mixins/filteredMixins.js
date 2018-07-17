@@ -9,5 +9,8 @@ export const filteredMixins = {
     filteredSearch() {
       return this.cars.filter(a => a.match(this.textFiltered));
     }
+  },
+  created() {
+    console.log('from filteredMixins.js');
   }
 }

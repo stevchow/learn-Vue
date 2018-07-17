@@ -9,6 +9,9 @@
 <script>
 import { filteredMixins } from "../mixins/filteredMixins.js";
 export default {
-  mixins: [filteredMixins]
+  mixins: [filteredMixins],
+  created(){
+    console.log('from list.vue');
+  }
 };
 </script>

@@ -34,6 +34,9 @@ export default {
       return val.toLowerCase();
     }
   },
-  mixins: [filteredMixins]
+  mixins: [filteredMixins],
+  created(){
+    console.log('from app.vue');
+  }
 };
 </script>
