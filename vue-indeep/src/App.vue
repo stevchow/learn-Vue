@@ -3,10 +3,10 @@
     <h1>Hello There</h1>
     <hr>
     <button class="btn btn-primary" @click="show = !show">Alert</button>
-    <transition name="fade">
+    <transition name="fade" appear>
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
-    <transition name="slide" type="animation">
+    <transition name="slide" type="animation" appear>
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
   </div>
@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      show: false
+      show: true
     };
   }
 };
