@@ -6,7 +6,21 @@
     <transition name="fade" appear>
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
+    <transition 
+        enter-active-class="animated pulse"
+        leave-active-class="animated zoomOutDown"
+        appear
+    >
+      <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
+    </transition>
     <transition name="slide" type="animation" appear>
+      <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
+    </transition>
+    <transition 
+        enter-active-class="animated slideInDown"
+        leave-active-class="animated fadeOutUp"
+        appear
+    >
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
   </div>
