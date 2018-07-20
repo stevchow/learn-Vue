@@ -2,12 +2,19 @@
   <div class="animate">
     <h1>Hello There</h1>
     <hr>
+    <select v-model="animateCSS" class="form-control">
+      <option value="animated hinge">hinge</option>
+      <option value="animated rollIn">roll in</option>
+      <option value="animated rollOut">roll out</option>
+      <option value="animated swing">swing</option>
+    </select>
+    <hr>
     <button class="btn btn-primary" @click="show = !show">Alert</button>
     <transition name="fade" appear>
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
     <transition 
-        enter-active-class="animated pulse"
+        :enter-active-class="animateCSS"
         leave-active-class="animated zoomOutDown"
         appear
     >
@@ -18,7 +25,7 @@
     </transition>
     <transition 
         enter-active-class="animated slideInDown"
-        leave-active-class="animated fadeOutUp"
+        :leave-active-class="animateCSS"
         appear
     >
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
@@ -29,7 +36,8 @@
 export default {
   data() {
     return {
-      show: true
+      show: true,
+      animateCSS: "animated pulse"
     };
   }
 };
