@@ -2,6 +2,11 @@
   <div class="animate">
     <h1>Hello There</h1>
     <hr>
+       <transition name="slide" type="animation" mode="out-in" appear>
+      <div class="alert alert-danger" v-if="show" key="danger">Error! Please Contact administrator</div>
+      <div class="alert alert-success" v-else key="success" >Welcome</div>
+    </transition>
+    <hr>
     <select v-model="animateCSS" class="form-control">
       <option value="animated hinge">hinge</option>
       <option value="animated rollIn">roll in</option>
@@ -18,9 +23,6 @@
         leave-active-class="animated zoomOutDown"
         appear
     >
-      <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
-    </transition>
-    <transition name="slide" type="animation" appear>
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
     <transition 
@@ -72,13 +74,13 @@ export default {
 }
 .slide-enter-active {
   animation: slide-in 1s ease-out forwards;
-  transition: opacity 0.5s;
+  transition: opacity 1;
 }
 .slide-leave {
 }
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
-  transition: opacity 3s;
+  transition: opacity 1s;
   opacity: 0;
 }
 @keyframes slide-in {
