@@ -6,7 +6,7 @@
     <transition name="fade">
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
-    <transition name="slide">
+    <transition name="slide" type="animation">
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
   </div>
@@ -46,33 +46,37 @@ export default {
 /*transition name 'slide'*/
 .slide-enter {
   /* transform: translateY(50px); */
+  opacity: 0;
 }
 .slide-enter-active {
   animation: slide-in 1s ease-out forwards;
+  transition: opacity 0.5s;
 }
 .slide-leave {
 }
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
+  transition: opacity 3s;
+  opacity: 0;
 }
 @keyframes slide-in {
   from {
     transform: translateY(20px);
-    opacity: 0;
+    /* opacity: 0; */
   }
   to {
     transform: translateY(0px);
-    opacity: 1;
+    /* opacity: 1; */
   }
 }
 @keyframes slide-out {
   from {
     transform: translateY(0px);
-    opacity: 1;
+    /* opacity: 1; */
   }
   to {
     transform: translateY(20px);
-    opacity: 0;
+    /* opacity: 0; */
   }
 }
 </style>
