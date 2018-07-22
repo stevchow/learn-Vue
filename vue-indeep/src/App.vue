@@ -37,6 +37,17 @@
     <transition name="fade" mode="out-in">
     <component :is="toggleComponent"></component>
     </transition>
+    <hr>
+    <hr>
+    <button class="btn btn-warning" @click="addItem">Add item</button>
+    <br><br>
+    <ul class="list-group">
+      <li class="list-group-item" 
+      v-for="(num, index) in nums" 
+      :key="index" 
+      style="cursor:pointer" 
+      @click="removeItem(index)">{{num}}</li>
+    </ul>
   </div>
 </template>
 <script>
@@ -47,8 +58,18 @@ export default {
     return {
       show: false,
       animateCSS: "animated pulse",
-      toggleComponent: "app-success"
+      toggleComponent: "app-success",
+      nums: [1, 2, 3, 6, 7, 8, 9, 0]
     };
+  },
+  methods: {
+    addItem() {
+      let post = Math.floor(Math.random() * this.nums.length);
+      this.nums.splice(post, 0, post);
+    },
+    removeItem(index) {
+      this.nums.splice(index, 1);
+    }
   },
   components: {
     AppSuccess,
