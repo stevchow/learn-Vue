@@ -3,9 +3,9 @@
     <h1>Hello There</h1>
     <hr>
        <transition name="slide" type="animation" mode="out-in" appear>
-      <div class="alert alert-danger" v-if="show" key="danger">Error! Please Contact administrator</div>
-      <div class="alert alert-success" v-else key="success" >Welcome</div>
-    </transition>
+        <div class="alert alert-danger" v-if="show" key="danger">Error! Please Contact administrator</div>
+        <div class="alert alert-success" v-else key="success" >Welcome</div>
+      </transition>
     <hr>
     <select v-model="animateCSS" class="form-control">
       <option value="animated hinge">hinge</option>
@@ -32,15 +32,27 @@
     >
       <div class="alert alert-danger" v-if="show">Error! Please Contact administrator</div>
     </transition>
+    <hr>
+    <button class="btn btn-info" @click="toggleComponent === 'app-success' ? toggleComponent = 'app-alert' : toggleComponent = 'app-success'">Toggle Component with transition</button>
+    <transition name="fade" mode="out-in">
+    <component :is="toggleComponent"></component>
+    </transition>
   </div>
 </template>
 <script>
+import AppSuccess from "./components/Success";
+import AppAlert from "./components/Alert";
 export default {
   data() {
     return {
-      show: true,
-      animateCSS: "animated pulse"
+      show: false,
+      animateCSS: "animated pulse",
+      toggleComponent: "app-success"
     };
+  },
+  components: {
+    AppSuccess,
+    AppAlert
   }
 };
 </script>
