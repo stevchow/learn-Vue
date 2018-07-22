@@ -42,11 +42,13 @@
     <button class="btn btn-warning" @click="addItem">Add item</button>
     <br><br>
     <ul class="list-group">
-      <li class="list-group-item" 
-      v-for="(num, index) in nums" 
-      :key="index" 
-      style="cursor:pointer" 
-      @click="removeItem(index)">{{num}}</li>
+      <transition-group name="slide">
+        <li class="list-group-item" 
+        v-for="(num, index) in nums" 
+        :key="num" 
+        style="cursor:pointer" 
+        @click="removeItem(index)">{{num}}</li>
+      </transition-group>
     </ul>
   </div>
 </template>
@@ -59,7 +61,7 @@ export default {
       show: false,
       animateCSS: "animated pulse",
       toggleComponent: "app-success",
-      nums: [1, 2, 3, 6, 7, 8, 9, 0]
+      nums: [1, 2, 3, 0]
     };
   },
   methods: {
@@ -115,6 +117,11 @@ export default {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 1s;
   opacity: 0;
+  position: absolute; /*for smooth leaving, for transition-group on list*/
+}
+
+.slide-move {
+  transition: all 1s;
 }
 @keyframes slide-in {
   from {
