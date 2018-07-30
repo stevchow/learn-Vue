@@ -3,7 +3,7 @@
     <h1>Header</h1>
     <tabs></tabs>
     <router-view></router-view>
-    <h2>footer</h2>
+    <button class="btn btn-block btn-info" @click="backHome">back to home from JS</button>
   </div>
 </template>
 <script>
@@ -11,6 +11,12 @@ import Tabs from "./components/Tabs";
 export default {
   components: {
     Tabs
+  },
+  methods: {
+    backHome() {
+      this.$router.push("/");
+      //can also pushing object ({path:''}), we use push to be able to go back when clicking back
+    }
   }
 };
 </script>
