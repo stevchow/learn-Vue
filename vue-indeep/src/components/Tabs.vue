@@ -1,17 +1,9 @@
 <template>
     <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <router-link to="/" class="nav-link">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/Alert" class="nav-link">Alert</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/List" class="nav-link">List</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/Success" class="nav-link">Success</router-link>
-      </li>
+        <router-link to="/" tag="li" class="nav-link" active-class="active" exact><a>Home</a></router-link>
+        <router-link to="/alert" tag="li" class="nav-link" active-class="active" ><a>Alert</a></router-link>
+        <router-link to="/success" tag="li" class="nav-link" active-class="active" ><a>Success</a></router-link>
+        <router-link to="/list" tag="li" class="nav-link" active-class="active" ><a>List</a></router-link>
     </ul>
 </template>
 
