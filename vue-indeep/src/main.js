@@ -1,9 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueRouter from 'vue-router'
 // import App from './AppDirective.vue'
 // import App from './AppFilterMixins.vue'
 // import App from './AppAnimation.vue'
 // import App from './AppQuiz.vue'
+import {routes} from './routes'
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes
+})
 
 Vue.directive('highlight', {
   bind(el, binding, vnode) {
@@ -33,5 +41,6 @@ Vue.directive('highlightInput', {
 
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 })
