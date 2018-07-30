@@ -1,13 +1,18 @@
 <template>
   <div>
-    <h1>Navbar</h1>
-    <hr>
+    <h1>Header</h1>
+    <tabs></tabs>
     <router-view></router-view>
     <h2>footer</h2>
   </div>
 </template>
 <script>
-export default {};
+import Tabs from "./components/Tabs";
+export default {
+  components: {
+    Tabs
+  }
+};
 </script>
 <style>
 html {
