@@ -3,6 +3,7 @@ import App from './App.vue'
 // import App from './AppDirective.vue'
 // import App from './AppFilterMixins.vue'
 // import App from './AppAnimation.vue'
+// import App from './AppQuiz.vue'
 
 Vue.directive('highlight', {
   bind(el, binding, vnode) {
