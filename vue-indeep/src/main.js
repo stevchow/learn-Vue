@@ -5,12 +5,13 @@ import VueRouter from 'vue-router'
 // import App from './AppFilterMixins.vue'
 // import App from './AppAnimation.vue'
 // import App from './AppQuiz.vue'
-import {routes} from './routes'
+import { routes } from './routes'
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 Vue.directive('highlight', {
