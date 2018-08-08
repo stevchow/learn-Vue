@@ -10,14 +10,19 @@
 <script>
 import { filteredMixins } from "../mixins/filteredMixins.js";
 export default {
-  data(){
-    return{
+  data() {
+    return {
       id: this.$route.params.id
+    };
+  },
+  watch: {
+    $route(to, from) {
+      this.id = to.params.id;
     }
   },
   mixins: [filteredMixins],
-  created(){
-    console.log('from list.vue');
+  created() {
+    console.log("from list.vue");
   }
 };
 </script>
