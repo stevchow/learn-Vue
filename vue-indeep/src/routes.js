@@ -6,6 +6,6 @@ import Success from './components/Success.vue'
 export const routes = [
   { path: '', component: Home },
   { path: '/alert', component: Alert },
-  { path: '/list', component: List },
+  { path: '/list/:id', component: List },
   { path: '/success', component: Success },
 ]

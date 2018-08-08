@@ -46,4 +46,11 @@ body {
   padding: 3rem;
   box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+@media screen and (max-width: 1100px) {
+  body {
+    margin: 0;
+    height: 95vh;
+  }
+}
 </style>
